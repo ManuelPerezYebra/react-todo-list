@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FilterContainer, StyledTaskContainer, StyledTaskFooter, StyledTaskPending } from "./TaskContainer.styles";
+import { FilterContainer, StyledFlex, StyledTaskContainer, StyledTaskFooter, StyledTaskPending } from "./TaskContainer.styles";
 
 const TaskContainer = () => {
   const [tasks, setTasks] = useState([]);
@@ -50,7 +50,7 @@ const TaskContainer = () => {
   const showAllTask = () => {
     setTasks(allTasks); // Restaura todas las tareas
   };
-
+ 
   return (
     <form onSubmit={handleAddTask}>
       <StyledTaskContainer>
@@ -61,7 +61,8 @@ const TaskContainer = () => {
 
       {tasks.map((task, index) => (
         <StyledTaskPending key={index}>
-          <input 
+            <StyledFlex>
+                <input 
             type="checkbox" 
             name="" 
             id="" 
@@ -69,13 +70,16 @@ const TaskContainer = () => {
             onChange={() => taskCompleted(index)} 
           />
           <h1>{task.text}</h1>
+            </StyledFlex>
+          
+          <img src="icon-cross.svg" alt="" />
         </StyledTaskPending>
       ))}
 
       <StyledTaskFooter>
         <div><p>{remainingItems} Items Left</p></div>
         <FilterContainer>
-          <div><a href="#" onClick={showAllTask}>All</a></div>
+          <div onClick={showAllTask}><a href="#" >All</a></div>
           <div><a href="#" onClick={showActiveTasks}>Active</a></div>
           <div><a href="#" onClick={showCompletedTasks}>Completed</a></div>
         </FilterContainer>

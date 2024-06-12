@@ -27,6 +27,10 @@ const StyledTaskContainer = styled.div`
 		display: none;
 	}
 `;
+const StyledFlex = styled.div`
+	display: flex;
+	gap: 20px;
+`;
 const StyledTaskPending = styled.div`
 	background-color: #24273d;
 	border: none;
@@ -34,6 +38,7 @@ const StyledTaskPending = styled.div`
 	width: 540px;
 	height: 64px;
 	display: flex;
+	justify-content: space-between;
 	margin: 158px auto;
 	padding: 24px;
 	gap: 24px;
@@ -44,6 +49,9 @@ const StyledTaskPending = styled.div`
 		font-weight: normal;
 	}
 	border-top: 1px solid #979797;
+	img {
+		cursor: pointer;
+	}
 `;
 const StyledTaskFooter = styled.div`
 	background-color: #24273d;
@@ -73,5 +81,6 @@ export {
 	StyledTaskContainer,
 	StyledTaskFooter,
 	StyledTaskPending,
-	FilterContainer
+	FilterContainer,
+	StyledFlex
 };
